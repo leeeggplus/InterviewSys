@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms import OrganizationForm
 
 # Create your views here.
@@ -11,7 +11,9 @@ def new_org(request):
             form.save()
 
     form = OrganizationForm()
+
     context = {
+        'type': 0,
         'form': form,
     }
 

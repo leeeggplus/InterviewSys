@@ -30,10 +30,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'taggit',
+INSTALLED_APPS = [    
     'apps.home',
     'apps.organization',
+    # 3rd party
+    'taggit',
+    'widget_tweaks',
     # System Apps
     'django.contrib.admin',
     'django.contrib.auth',
