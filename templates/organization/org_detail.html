@@ -1,0 +1,12 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+
+{% block resource_content %}
+{% endblock %} 
+
+{% block container_content %}
+<form action="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+</form>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MS CSS InterviewSys</title>
+
+    <link rel="stylesheet" href="{% static '/bootstrap/4.1.0/css/bootstrap.min.css' %}">  
+    <script src="{% static '/jQuery/3.3.1/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/bootstrap/4.1.0/js/bootstrap.min.js' %}"></script> 
+    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        
+    <link rel="stylesheet" href="{% static "/master/css/style.css" %}">
+    <script src="{% static "/master/js/global.js" %}"></script>
+    {% block resource_content %}
+    {% endblock %}  
+</head>
+
+<body>  
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand"><img src="{% static '/master/img/logo.png' %}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Connect</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block container_content %}
+    {% endblock %}
+    <!--- Footer -->
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Contact Us</h5>
+                    <hr class="light">
+                    <p>555-555-5555</p>
+                    <p>ldan@microsoft.com</p>
+                    <p>100 Street Name</p>
+                    <p>City, State, 000000</p>
+                </div>
+                <div class="col-md-4">                
+                    <hr class="light">
+                    <h5>Business Hours</h5>
+                    <hr class="light">
+                    <p>Monday: 9am - 6pm</p>
+                    <p>Saturday: 10am - 5pm</p>
+                    <p>Sunday: closed</p>
+                </div>
+                <div class="col-md-4">                
+                    <hr class="light">
+                    <h5>Service Area</h5>
+                    <hr class="light">
+                    <p>City, State, 000000</p>
+                    <p>City, State, 000000</p>
+                    <p>City, State, 000000</p>
+                    <p>City, State, 000000</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; microsoft.com</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
