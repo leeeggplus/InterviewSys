@@ -5,6 +5,30 @@
     margin-right: auto;    
 }
 
-form .p-sm-padding {
+.p-sm-padding {
     margin-bottom: 0;
 }
+
+form input {
+    width: 300px;
+}
+
+.lr-padding-50 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+code {
+    color: #0C3C26;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.card-btn {
+    padding-left: 0;
+}
+
+.create-btn {
+    padding-bottom: 0;
+}
+
