@@ -1,0 +1,26 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block resource_content %}
+<link rel="stylesheet" href="{% static "/organization/css/organization.css" %}">
+{% endblock %} 
+
+{% block container_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">
+                Organizations
+            </h1>
+        </div>
+        <hr>
+    </div>
+</div>
+    
+<div class="container-fluid padding"> 
+    <div class="row col-center-block">    
+        
+    </div>
+</div>
+{% endblock %}

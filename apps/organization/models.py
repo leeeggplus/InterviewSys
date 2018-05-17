@@ -14,5 +14,12 @@ class Organization(models.Model):
     def __str__(self):
         return self.name
 
+    
+    @property
+    def get_content_type(self):
+        instance = self
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        return content_type
+
 
     
