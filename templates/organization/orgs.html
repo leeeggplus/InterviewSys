@@ -10,7 +10,7 @@
 <div class="container-fluid padding">
     <div class="row welcome text-center">        
         <div class="col-12">
-            <h1 class="display-4">Organizations <a href="{% url 'organization_new_or_modify' %}" class="btn btn-link create-btn">New</a></h1>            
+            <h1 class="display-4">Organizations <a href="{% url 'organization_new' %}" class="btn btn-link create-btn">New</a></h1>            
         </div>
         <hr>
     </div>
@@ -43,7 +43,7 @@
                 </ul>
 
                 <div class="card-body text-left">
-                    <a href="#" class="btn btn-link card-btn">Modify</a>
+                    <a href="{% url 'organization_modify' org.id %}" class="btn btn-link card-btn">Modify</a>
                     <a href="{% url 'organization_delete' org.id %}" class="btn btn-link card-btn">Delete</a>
                 </div>                
             </div>

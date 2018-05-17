@@ -11,12 +11,11 @@
     <div class="row welcome text-center">
         <div class="col-12">
             <h1 class="display-4">
-                {% if type == 1 %}
-                Create
-                {% else %}
-                Modify
+                {% if type == 0 %}
+                New Organization
+                {% else %} 
+                Modify Organization
                 {% endif %}
-                Orgnization
             </h1>
         </div>
         <hr>
@@ -25,24 +24,28 @@
     
 <div class="container-fluid padding"> 
     <div class="row col-center-block">    
-        <form action="{% url 'organization_new_or_modify' %}" method="POST">
+        {% if type == 0 %}
+        <form action="{% url 'organization_new' %}" method="POST">
+        {% else %}
+        <form action="{% url 'organization_modify' org_id %}" method="POST">      
+        {% endif %}  
             {% csrf_token %}
-            <p class="p-sm-padding"><label for="id_{{ form.name.label }}">{{ form.name.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.name.label }}">{{ form.name.label | upper }}</code></p>
             <p>{{ form.name }}</p>
 
-            <p class="p-sm-padding"><label for="id_{{ form.manager_name.label }}">{{ form.manager_name.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.manager_name.label }}">{{ form.manager_name.label | upper }}</code></p>
             <p>{{ form.manager_name }}</p>
 
-            <p class="p-sm-padding"><label for="id_{{ form.manager_alias.label }}">{{ form.manager_alias.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.manager_alias.label }}">{{ form.manager_alias.label | upper }}</code></p>
             <p>{{ form.manager_alias }}</p>
 
-            <p class="p-sm-padding"><label for="id_{{ form.manager_email.label }}">{{ form.manager_email.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.manager_email.label }}">{{ form.manager_email.label | upper }}</code></p>
             <p>{{ form.manager_email }}</p>
 
-            <p class="p-sm-padding"><label for="id_{{ form.parent_org.label }}">{{ form.parent_org.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.parent_org.label }}">{{ form.parent_org.label | upper }}</code></p>
             <p>{{ form.parent_org }}</p>
 
-            <p class="p-sm-padding"><label for="id_{{ form.skills.label }}">{{ form.skills.label | upper }}</label></p>
+            <p class="p-sm-padding"><code for="id_{{ form.skills.label }}">{{ form.skills.label | upper }}</code></p>
             <p>{{ form.skills }}</p>
 
             <button type="submit" class="btn btn-success">Submit</button>
