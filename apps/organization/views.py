@@ -54,7 +54,7 @@ def delete(request, org_id):
         'orgs': orgs
     }
 
-    return render(request, 'organization/orgs.html', context)
+    return redirect('organization_all_orgs')
 
 
 def modify(request, org_id):
