@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [    
     'apps.home',
     'apps.organization',
+    'apps.question',
     # 3rd party
     'taggit',
     'widget_tweaks',

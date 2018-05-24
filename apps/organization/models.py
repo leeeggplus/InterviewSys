@@ -20,6 +20,9 @@ class Organization(models.Model):
         instance = self
         content_type = ContentType.objects.get_for_model(instance.__class__)
         return content_type
+    
+    class Meta:
+        ordering = ('name', )
 
 
     

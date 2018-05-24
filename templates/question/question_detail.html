@@ -1,0 +1,50 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block resource_content %}
+<link rel="stylesheet" href="{% static "/question/css/question.css" %}">
+{% endblock %} 
+
+{% block container_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">
+                {% if type == 0 %}
+                New Question
+                {% else %} 
+                Modify Question
+                {% endif %}
+                <a href="{% url 'question_all_questions' %}" class="btn btn-link create-btn">Back</a>
+            </h1>
+        </div>
+        <hr>
+    </div>
+</div>
+    
+<div class="container-fluid padding"> 
+    <div class="row col-center-block">    
+        {% if type == 0 %}
+        <form action="{% url 'question_new' %}" method="POST">
+        {% else %}
+        <form action="{% url 'question_new' %}" method="POST">   
+        {% endif %}  
+            {% csrf_token %}
+            <p class="p-sm-padding"><code for="id_{{ form.question_body.label }}">{{ form.question_body.label | upper }}</code></p>
+            <p>{{ form.question_body }}</p>
+
+            <p class="p-sm-padding"><code for="id_{{ form.answer_body.label }}">{{ form.answer_body.label | upper }}</code></p>
+            <p>{{ form.answer_body }}</p>
+
+            <p class="p-sm-padding"><code for="id_{{ form.level.label }}">{{ form.level.label | upper }}</code></p>
+            <p>{{ form.level }}</p>
+
+            <p class="p-sm-padding"><code for="id_{{ form.tags.label }}">{{ form.tags.label | upper }}</code></p>
+            <p>{{ form.tags }}</p>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
