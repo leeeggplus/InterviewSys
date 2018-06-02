@@ -22,7 +22,7 @@
 <div class="container-fluid padding">     
     <div class="row padding lr-padding-50">    
         {% for question in questions %}
-        <div class="col-md-6">
+        <div class="col-md-4">
             {% if question.id|divisibleby:7 %}
             <div class="card card-header-bg-light-pink border-dark">  
             {% elif question.id|divisibleby:3 %}
