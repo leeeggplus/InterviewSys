@@ -28,7 +28,7 @@
         {% if type == 0 %}
         <form action="{% url 'question_new' %}" method="POST">
         {% else %}
-        <form action="{% url 'question_new' %}" method="POST">   
+        <form action="{% url 'question_modify' question_id %}" method="POST">   
         {% endif %}  
             {% csrf_token %}
             <p class="p-sm-padding"><code for="id_{{ form.question_body.label }}">{{ form.question_body.label | upper }}</code></p>

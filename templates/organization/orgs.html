@@ -20,7 +20,11 @@
     <div class="row padding lr-padding-50">    
         {% for org in orgs %}
         <div class="col-md-3">
+            {% if org.parent_org == None %}
+            <div class="card card-header-bg-azure border-dark mb-3">
+            {% else %}
             <div class="card bg-light border-dark mb-3">
+            {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ org.name }}</h5>
                     {% if org.parent_org != None %}
@@ -40,12 +44,11 @@
                         {% endfor %}
                         </code>
                     </li>
+                    <li class="list-group-item text-left">
+                        <a href="{% url 'organization_modify' org.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Modify</a>
+                        <a href="{% url 'organization_delete' org.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Delete</a>
+                    </li>
                 </ul>
-
-                <div class="card-body text-left">
-                    <a href="{% url 'organization_modify' org.id %}" class="btn btn-link card-btn">Modify</a>
-                    <a href="{% url 'organization_delete' org.id %}" class="btn btn-link card-btn">Delete</a>
-                </div>                
             </div>
         </div> 
         {% endfor %}       

@@ -180,10 +180,6 @@ figure {
     padding: 1rem;
 }
 
-
-
-
-
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap
@@ -203,8 +199,23 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 
 
+.card-header-bg-azure {
+  background-color: #e6ffff;
+} 
 
+.no-padding-left {
+  padding-left: 0;
+}
 
+.no-padding-right {
+  padding-right: 0;
+}
 
+.no-padding-top {
+  padding-top: 0;
+}
 
+.no-padding-bottom {
+  padding-bottom: 0;
+}
 

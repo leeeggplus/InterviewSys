@@ -97,4 +97,4 @@ def modify(request, org_id):
             'orgs': orgs
         }
 
-        return render(request, 'organization/orgs.html', context)   
+        return redirect(all_orgs)
