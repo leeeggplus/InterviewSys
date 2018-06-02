@@ -203,6 +203,10 @@ Extra (xl) large devices (large desktops, 1200px and up)
   background-color: #e6ffff;
 } 
 
+.card-header-bg-light-green {
+  background-color: #e6ffe6;
+} 
+
 .no-padding-left {
   padding-left: 0;
 }
@@ -219,3 +223,6 @@ Extra (xl) large devices (large desktops, 1200px and up)
   padding-bottom: 0;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}

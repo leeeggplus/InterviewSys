@@ -4,36 +4,31 @@
 
 {% block resource_content %}
 <link rel="stylesheet" href="{% static "/question/css/question.css" %}">
-
-<script src="{% static '/question/js/question.js' %}"></script>
-
 {% endblock %} 
 
 {% block container_content %}
 <div class="container-fluid padding">
-    <div class="row welcome text-center">        
+    <div class="row welcome text-center">
         <div class="col-12">
-            <h1 class="display-4">Questions <a href="{% url 'question_new' %}" class="btn btn-link create-btn">New</a></h1>            
+            <h1 class="display-4">
+                Question #{{ question.id }}                
+            </h1>
         </div>
         <hr>
     </div>
 </div>
     
 <div class="container-fluid padding">     
-    <div class="row padding lr-padding-50">    
-        {% for question in questions %}
-        <div class="col-md-6">
-            {% if question.id|divisibleby:3 %}
-            <div class="card card-header-bg-light-green border-dark">  
-            {% else %}
-            <div class="card card-header-bg-azure border-dark">     
-            {% endif %}          
+    <div class="row padding lr-padding-50">
+        <div class="col-md-12">
+            <div class="card card-header-bg-light-green border-dark">       
                 <div class="card-body">
                     <h5 class="card-title no-margin-bottom">{{ question.question_body }}</h5>                    
                 </div>
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><code>Level: </code>{{ question.get_level_display }}</li>
+                    <li class="list-group-item"><code>Answer: </code>{{ question.answer_body|linebreaks }}</li>
                     <li class="list-group-item">
                         <code>
                         {% for tag in question.tags.all %}
@@ -42,14 +37,12 @@
                         </code>
                     </li>
                     <li class="list-group-item text-left">
-                        <a href="{% url 'question_detail' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">View</a>
                         <a href="{% url 'question_modify' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Modify</a>
                         <a href="{% url 'question_delete' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Delete</a>
                     </li>
                 </ul>   
             </div>
-        </div> 
-        {% endfor %}       
+        </div>  
     </div>
 </div>
 {% endblock %}

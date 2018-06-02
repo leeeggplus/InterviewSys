@@ -23,8 +23,8 @@ def new(request):
         form = QuestionForm(request.POST)
 
         if form.is_valid():
-            form.save()  
-            return redirect(all_questions)   
+            new_question = form.save()  
+            return redirect(detail, new_question.id)   
 
     # GET
     form = QuestionForm()
@@ -65,15 +65,9 @@ def modify(request, question_id):
             # clear & update tags.
             exist.tags.clear()
             for tag in form.cleaned_data['tags']:  
-                exist.tags.add(tag)    
-        
+                exist.tags.add(tag)            
 
-        questions = Question.objects.all()
-        context = {
-            'questions': questions
-        }
-
-        return redirect(all_questions)
+        return redirect(detail, question_id)
 
 
 def delete(request, question_id):
@@ -94,3 +88,16 @@ def delete(request, question_id):
 
     return redirect(all_questions)
  
+
+def detail(request, question_id):
+    '''
+    display a question with answers.
+    '''
+    question = get_object_or_404(Question, id=question_id)
+    
+    context = {
+        'question': question
+    }
+
+    return render(request, 'question/question_display.html', context)
+

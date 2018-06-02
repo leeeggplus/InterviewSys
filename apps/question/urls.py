@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.question.views import all_questions, new, modify, delete
+from apps.question.views import all_questions, new, modify, delete, detail
 
 
 urlpatterns= [    
@@ -7,4 +7,5 @@ urlpatterns= [
     path('new/', new, name='question_new'), 
     path('modify/<int:question_id>/', modify, name='question_modify'), 
     path('delete/<int:question_id>/', delete, name='question_delete'), 
+    path('detail/<int:question_id>/', detail, name='question_detail'), 
 ];

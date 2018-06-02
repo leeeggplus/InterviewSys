@@ -9,8 +9,8 @@ QUESTION_LEVEL_CHOICES = (
 
 # Create your models here.
 class Question(models.Model):
-    question_body = models.TextField(max_length=1000, blank=False)
-    answer_body = models.TextField(max_length=1000, blank=False)
+    question_body = models.TextField(max_length=2000, blank=False)
+    answer_body = models.TextField(max_length=2000, blank=False)
     level = models.IntegerField(null=False, blank=False, choices=QUESTION_LEVEL_CHOICES)
     created_at = models.DateTimeField(null=False, blank=False, auto_now=True)
     tags = TaggableManager()
