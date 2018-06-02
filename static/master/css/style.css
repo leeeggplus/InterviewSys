@@ -73,10 +73,25 @@ html, body {
 .fa-file-alt {
   color: #2163cf;
 }
+
+.fa-ravelry {
+  color: #99e6ff;
+}
+
+.fa-shipping-fast {
+  color: #ebb111;
+}
+
 .fa-clock, .fa-connectdevelop, .fa-file-alt {
   font-size: 4em;
   margin: 1rem;
 }
+
+.fa-ravelry, .fa-shipping-fast {
+  font-size: 4.3em;
+  margin: 1rem;
+}
+
 .social a {
   font-size: 4.5em;
   padding: 3rem;
