@@ -23,13 +23,15 @@
     <div class="row padding lr-padding-50">    
         {% for question in questions %}
         <div class="col-md-6">
-            {% if question.id|divisibleby:3 %}
-            <div class="card card-header-bg-light-green border-dark">  
+            {% if question.id|divisibleby:7 %}
+            <div class="card card-header-bg-light-pink border-dark">  
+            {% elif question.id|divisibleby:3 %}
+            <div class="card card-header-bg-light-green border-dark"> 
             {% else %}
             <div class="card card-header-bg-azure border-dark">     
             {% endif %}          
                 <div class="card-body">
-                    <h5 class="card-title no-margin-bottom">{{ question.question_body }}</h5>                    
+                    <h5 class="card-title no-margin-bottom"><a class="question-title-link" href="{% url 'question_detail' question.id %}">{{ question.question_body }}</a></h5>                    
                 </div>
 
                 <ul class="list-group list-group-flush">
@@ -37,14 +39,9 @@
                     <li class="list-group-item">
                         <code>
                         {% for tag in question.tags.all %}
-                        <u>{{ tag }}</u>
+                        <u>{{ tag }}</u>,
                         {% endfor %}
                         </code>
-                    </li>
-                    <li class="list-group-item text-left">
-                        <a href="{% url 'question_detail' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">View</a>
-                        <a href="{% url 'question_modify' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Modify</a>
-                        <a href="{% url 'question_delete' question.id %}" class="btn btn-link no-padding-left no-padding-top no-padding-bottom">Delete</a>
                     </li>
                 </ul>   
             </div>

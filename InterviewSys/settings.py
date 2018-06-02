@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.organization',
     'apps.question',
+    'apps.search',
     # 3rd party
     'taggit',
     'widget_tweaks',

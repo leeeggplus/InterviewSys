@@ -1,0 +1,22 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block resource_content %}
+<link rel="stylesheet" href="{% static '/question/css/question.css' %}">
+<link rel="stylesheet" href="{% static '/question/css/search.css' %}">
+<script src="{% static '/search/js/search.js' %}"></script> 
+{% endblock %} 
+
+{% block container_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">
+                Search               
+            </h1>
+        </div>
+        <hr>
+    </div>
+</div>   
+{% endblock %}

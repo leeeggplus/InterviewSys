@@ -21,4 +21,5 @@ urlpatterns = [
     path('organization/', include('apps.organization.urls')),
     path('home/', include('apps.home.urls')),
     path('question/', include('apps.question.urls')),
+    path('search/', include('apps.search.urls')),
 ]
