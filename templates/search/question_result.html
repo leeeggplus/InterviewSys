@@ -1,0 +1,123 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block resource_content %}
+<link rel="stylesheet" href="{% static "/question/css/question.css" %}">
+
+<script src="{% static '/question/js/question.js' %}"></script>
+
+{% endblock %} 
+
+{% block container_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">        
+        <div class="col-12">
+            <h1 class="display-4">Questions</h1>            
+        </div>
+        <hr>
+    </div>
+</div>
+
+{% if res1|length > 0 %}
+<div class="container-fluid padding">  
+    <h4>{{ keywords.0 }} - {{ level.0 }}</h4>   
+    <div class="row padding lr-padding-50">    
+        {% for question in res1 %}
+        <div class="col-md-4">
+            {% if question.id|divisibleby:7 %}
+            <div class="card card-header-bg-light-pink border-dark">  
+            {% elif question.id|divisibleby:3 %}
+            <div class="card card-header-bg-light-green border-dark"> 
+            {% else %}
+            <div class="card card-header-bg-azure border-dark">     
+            {% endif %}          
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom"><a class="question-title-link" href="{% url 'question_detail' question.id %}">{{ question.question_body }}</a></h5>                    
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><code>Level: </code>{{ question.get_level_display }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in question.tags.all %}
+                        <u>{{ tag }}</u>,
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>   
+            </div>
+        </div> 
+        {% endfor %}       
+    </div>
+</div>
+{% endif %}
+
+{% if res2|length > 0 %}
+<div class="container-fluid padding">     
+    <h4>{{ keywords.1 }} - {{ level.1 }}</h4>  
+    <div class="row padding lr-padding-50">    
+        {% for question in res2 %}
+        <div class="col-md-4">
+            {% if question.id|divisibleby:7 %}
+            <div class="card card-header-bg-light-pink border-dark">  
+            {% elif question.id|divisibleby:3 %}
+            <div class="card card-header-bg-light-green border-dark"> 
+            {% else %}
+            <div class="card card-header-bg-azure border-dark">     
+            {% endif %}          
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom"><a class="question-title-link" href="{% url 'question_detail' question.id %}">{{ question.question_body }}</a></h5>                    
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><code>Level: </code>{{ question.get_level_display }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in question.tags.all %}
+                        <u>{{ tag }}</u>,
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>   
+            </div>
+        </div> 
+        {% endfor %}       
+    </div>
+</div>
+{% endif %}
+
+{% if res3|length > 0 %}
+<div class="container-fluid padding">     
+    <h4>{{ keywords.2 }} - {{ level.2 }}</h4>  
+    <div class="row padding lr-padding-50">    
+        {% for question in res3 %}
+        <div class="col-md-4">
+            {% if question.id|divisibleby:7 %}
+            <div class="card card-header-bg-light-pink border-dark">  
+            {% elif question.id|divisibleby:3 %}
+            <div class="card card-header-bg-light-green border-dark"> 
+            {% else %}
+            <div class="card card-header-bg-azure border-dark">     
+            {% endif %}          
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom"><a class="question-title-link" href="{% url 'question_detail' question.id %}">{{ question.question_body }}</a></h5>                    
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><code>Level: </code>{{ question.get_level_display }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in question.tags.all %}
+                        <u>{{ tag }}</u>,
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>   
+            </div>
+        </div> 
+        {% endfor %}       
+    </div>
+</div>
+{% endif %}
+{% endblock %}

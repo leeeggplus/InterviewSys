@@ -1,0 +1,139 @@
+{% extends 'master/layouts.html' %} 
+{% load static %} 
+{% load widget_tweaks %}
+
+{% block resource_content %}
+<link rel="stylesheet" href="{% static "/organization/css/organization.css" %}">
+<link rel="stylesheet" href="{% static '/question/css/question.css' %}">
+<link rel="stylesheet" href="{% static '/search/css/search.css' %}">
+<script src="{% static '/search/js/search.js' %}"></script> 
+{% endblock %} 
+
+{% block container_content %}
+<div class="container-fluid padding">
+    <div class="row welcome text-center">        
+        <div class="col-12">
+            <h1 class="display-4">Organizations <a href="{% url 'organization_new' %}" class="btn btn-link create-btn">New</a></h1>            
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="upload-btn-wrapper col-md-12 col-sm-12 text-center">
+    <!--<div class="loader"></div>-->
+</div>    
+
+{% if res1|length > 0 %}
+<div class="container-fluid padding">   
+    <h4>{{ keywords.0 }}</h4>  
+    <div class="row padding lr-padding-50">          
+        {% for org in res1 %}
+        <div class="col-md-3">
+            {% if org.parent_org == None %}
+            <div class="card card-header-bg-azure border-dark mb-3">
+            {% else %}
+            <div class="card bg-light border-dark mb-3">
+            {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom">{{ org.name }}</h5>
+                    {% if org.parent_org != None %}
+                    <p class="card-text">
+                        <i>{{ org.parent_org }}</i>
+                    </p>
+                    {% endif %}
+                </div>
+
+                <ul class="list-group list-group-flush">                    
+                    <li class="list-group-item"><code>Manager: </code>{{ org.manager_name }} ({{ org.manager_alias }})</li>
+                    <li class="list-group-item"><code>Email: </code>{{ org.manager_email }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in org.skills.all %}
+                        <u>{{ tag }}</u>
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+        {% endfor %}  
+    </div>
+</div>   
+{% endif %}
+
+{% if res1|length > 0 %}
+<div class="container-fluid padding"> 
+    <h4>{{ keywords.1 }}</h4>
+    <div class="row padding lr-padding-50"> 
+        {% for org in res2 %}
+        <div class="col-md-3">
+            {% if org.parent_org == None %}
+            <div class="card card-header-bg-azure border-dark mb-3">
+            {% else %}
+            <div class="card bg-light border-dark mb-3">
+            {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom">{{ org.name }}</h5>
+                    {% if org.parent_org != None %}
+                    <p class="card-text">
+                        <i>{{ org.parent_org }}</i>
+                    </p>
+                    {% endif %}
+                </div>
+
+                <ul class="list-group list-group-flush">                    
+                    <li class="list-group-item"><code>Manager: </code>{{ org.manager_name }} ({{ org.manager_alias }})</li>
+                    <li class="list-group-item"><code>Email: </code>{{ org.manager_email }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in org.skills.all %}
+                        <u>{{ tag }}</u>
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+        {% endfor %} 
+    </div>
+</div>  
+{% endif %}
+
+{% if res1|length > 0 %}
+<div class="container-fluid padding"> 
+    <h4>{{ keywords.2 }}</h4>  
+    <div class="row padding lr-padding-50">        
+        {% for org in res3 %}
+        <div class="col-md-3">
+            {% if org.parent_org == None %}
+            <div class="card card-header-bg-azure border-dark mb-3">
+            {% else %}
+            <div class="card bg-light border-dark mb-3">
+            {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title no-margin-bottom">{{ org.name }}</h5>
+                    {% if org.parent_org != None %}
+                    <p class="card-text">
+                        <i>{{ org.parent_org }}</i>
+                    </p>
+                    {% endif %}
+                </div>
+
+                <ul class="list-group list-group-flush">                    
+                    <li class="list-group-item"><code>Manager: </code>{{ org.manager_name }} ({{ org.manager_alias }})</li>
+                    <li class="list-group-item"><code>Email: </code>{{ org.manager_email }}</li>
+                    <li class="list-group-item">
+                        <code>
+                        {% for tag in org.skills.all %}
+                        <u>{{ tag }}</u>
+                        {% endfor %}
+                        </code>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+        {% endfor %} 
+    </div>
+</div>
+{% endif %}
+{% endblock %}
